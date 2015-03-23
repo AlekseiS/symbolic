@@ -80,3 +80,22 @@
 .sp-cf:before, .sp-cf:after { content: ""; display: table; }
 .sp-cf:after { clear: both; }
 .sp-cf { *zoom: 1; }
+
+.sp-palette .sp-thumb-el {
+    display: block;
+    position:relative;
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 3px;
+    cursor: pointer;
+    border:solid 2px #888;
+    font-size: 20px;
+}
+.sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
+    border-color: orange;
+}
+.sp-thumb-inner {
+    padding-top: 3px;
+    text-align: center;
+}

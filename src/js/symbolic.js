@@ -28,7 +28,10 @@
                     "</div>",
                 "</div>"
             ].join(""),
-            disabled: false
+            palette: [
+                ["1", "2", "3"],
+                ["A", "B", "C"]
+            ]
         };
 
     // The actual plugin constructor
@@ -46,6 +49,7 @@
         this._preview = $(this.settings.previewTemplate);
         this._container = $(this.settings.containerTemplate, this._doc);
         this._appendTo = $("body");
+        this._current = this.settings.palette[0][0];
         this.init();
     }
 
@@ -65,6 +69,7 @@
                 e.stopPropagation();
             }, this));
             this._boundElement.append(this._preview);
+            this.populateContainer(this._container);
             this._appendTo.append(this._container);
             // TODO: recalculate offset on resize
             this._container.offset(this.getOffset(this._container, this._preview));
@@ -113,6 +118,24 @@
                 Math.min(offset.top, ((offset.top + dpHeight > viewHeight && viewHeight > dpHeight) ?
                     Math.abs(dpHeight + inputHeight - extraY) : extraY));
             return offset;
+        },
+        get: function () {
+            return this._current;
+        },
+        populateContainer: function (container) {
+            var html = [];
+            var paletteArray = this.settings.palette;
+            for (var i = 0; i < paletteArray.length; i++) {
+                html.push(this.populateRow(paletteArray[i]));
+            }
+            container.find(".sp-palette").append(html.join(""));
+        },
+        populateRow: function (row) {
+            var html = [];
+            for (var i = 0; i < row.length; i++) {
+                html.push("<span class='sp-thumb-el'><span class='sp-thumb-inner'>" + row[i] + "</span></span>");
+            }
+            return "<div class='sp-cf'>" + html.join("") + "</div>";
         }
     });
 
