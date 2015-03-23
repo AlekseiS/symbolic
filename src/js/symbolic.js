@@ -66,9 +66,10 @@
             }, this));
             this._boundElement.append(this._preview);
             this._appendTo.append(this._container);
+            // TODO: recalculate offset on resize
+            this._container.offset(this.getOffset(this._container, this._preview));
             // prevent clicks from bubbling up to document. This would cause it to be hidden.
             this._container.click(this.stopPropagation);
-
             console.log("Finished init");
         },
         toggle: function () {
@@ -93,6 +94,25 @@
         },
         stopPropagation: function (e) {
             e.stopPropagation();
+        },
+        getOffset: function (container, boundElement) {
+            var extraY = 0;
+            var dpWidth = container.outerWidth();
+            var dpHeight = container.outerHeight();
+            var inputHeight = boundElement.outerHeight();
+            var doc = container[0].ownerDocument;
+            var docElem = doc.documentElement;
+            var viewWidth = docElem.clientWidth + $(doc).scrollLeft();
+            var viewHeight = docElem.clientHeight + $(doc).scrollTop();
+            var offset = boundElement.offset();
+            offset.top += inputHeight;
+            offset.left -=
+                Math.min(offset.left, (offset.left + dpWidth > viewWidth && viewWidth > dpWidth) ?
+                    Math.abs(offset.left + dpWidth - viewWidth) : 0);
+            offset.top -=
+                Math.min(offset.top, ((offset.top + dpHeight > viewHeight && viewHeight > dpHeight) ?
+                    Math.abs(dpHeight + inputHeight - extraY) : extraY));
+            return offset;
         }
     });
 

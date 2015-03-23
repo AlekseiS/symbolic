@@ -76,3 +76,7 @@
     margin-bottom: -290px;
     border-right: solid 1px #ccc;
 }
+/* Clearfix hack */
+.sp-cf:before, .sp-cf:after { content: ""; display: table; }
+.sp-cf:after { clear: both; }
+.sp-cf { *zoom: 1; }
