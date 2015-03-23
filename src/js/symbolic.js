@@ -89,6 +89,7 @@
         show: function () {
             console.log("show()");
             this._containerVisible = true;
+            $(this._doc).bind("click." + this._name, $.proxy(this.clickout, this));
             this._preview.addClass("sp-active");
             this._container.removeClass("sp-hidden");
         },
@@ -97,6 +98,7 @@
             this._containerVisible = false;
             this._container.addClass("sp-hidden");
             this._preview.removeClass("sp-active");
+            $(this._doc).unbind("click." + this._name, $.proxy(this.clickout, this));
         },
         stopPropagation: function (e) {
             e.stopPropagation();
@@ -137,7 +139,16 @@
                 html.push("<span class='sp-thumb-el'>" + row[i] + "</span>");
             }
             return "<div class='sp-cf'>" + html.join("") + "</div>";
+        },
+        clickout: function (e) {
+            console.log("clickout()");
+            // Return on right click.
+            if (e.button === 2) {
+                return;
+            }
+            this.hide();
         }
+
     });
 
     // A really lightweight plugin wrapper around the constructor,
