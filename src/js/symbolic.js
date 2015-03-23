@@ -29,8 +29,8 @@
                 "</div>"
             ].join(""),
             palette: [
-                ["1", "2", "3"],
-                ["A", "B", "C"]
+                ["\uD83D\uDE02", "\uD83D\uDE05", "\uD83D\uDE04", "\uD83D\uDE06", "\uD83D\uDE00"],
+                ["\uD83D\uDE39", "\uD83D\uDE38", "\uD83D\uDE3C", "\uD83D\uDE0F"]
             ]
         };
 
@@ -133,7 +133,7 @@
         populateRow: function (row) {
             var html = [];
             for (var i = 0; i < row.length; i++) {
-                html.push("<span class='sp-thumb-el'><span class='sp-thumb-inner'>" + row[i] + "</span></span>");
+                html.push("<span class='sp-thumb-el'>" + row[i] + "</span>");
             }
             return "<div class='sp-cf'>" + html.join("") + "</div>";
         }

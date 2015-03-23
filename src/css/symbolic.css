@@ -79,17 +79,14 @@
     display: block;
     position:relative;
     float:left;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     margin: 3px;
     cursor: pointer;
-    border:solid 2px #888;
+    border:solid 1px #bbb;
     font-size: 20px;
+    text-align: center;
 }
 .sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
     border-color: orange;
-}
-.sp-thumb-inner {
-    padding-top: 3px;
-    text-align: center;
 }
