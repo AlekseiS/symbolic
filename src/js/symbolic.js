@@ -15,7 +15,20 @@
 
     var pluginName = "symbolic",
         defaults = {
-            propertyName: "value"
+            previewTemplate: [
+                "<div class='sp-replacer'>",
+                    "<div class='sp-preview'><span class='sp-preview-inner'>A</span></div>",
+                    "<div class='sp-dd'>&#9660;</div>",
+                "</div>"
+            ].join(""),
+            containerTemplate: [
+                "<div class='sp-container sp-hidden'>",
+                    "<div class='sp-palette-container'>",
+                        "<div class='sp-palette sp-thumb sp-cf'></div>",
+                    "</div>",
+                "</div>"
+            ].join(""),
+            disabled: false
         };
 
     // The actual plugin constructor
@@ -26,8 +39,13 @@
         // is generally empty as we don't want to alter the default options for
         // future instances of the plugin
         this.settings = $.extend({}, defaults, options);
-        this._defaults = defaults;
         this._name = pluginName;
+        this._doc = element.ownerDocument;
+        this._boundElement = $(element);
+        this._containerVisible = false;
+        this._preview = $(this.settings.previewTemplate);
+        this._container = $(this.settings.containerTemplate, this._doc);
+        this._appendTo = $("body");
         this.init();
     }
 
@@ -40,10 +58,41 @@
             // and this.settings
             // you can add more functions like the one below and
             // call them like so: this.yourOtherFunction(this.element, this.settings).
-            console.log("xD");
+            console.log("Started init");
+            this._preview.bind("click." + this._name + " touchstart." + this._name, $.proxy(function (e) {
+                console.log("clicked");
+                this.toggle();
+                e.stopPropagation();
+            }, this));
+            this._boundElement.append(this._preview);
+            this._appendTo.append(this._container);
+            // prevent clicks from bubbling up to document. This would cause it to be hidden.
+            this._container.click(this.stopPropagation);
+
+            console.log("Finished init");
         },
-        yourOtherFunction: function () {
-            // some logic
+        toggle: function () {
+            console.log("toggle()");
+            if (this._containerVisible) {
+                this.hide();
+            } else {
+                this.show();
+            }
+        },
+        show: function () {
+            console.log("show()");
+            this._containerVisible = true;
+            this._preview.addClass("sp-active");
+            this._container.removeClass("sp-hidden");
+        },
+        hide: function () {
+            console.log("hide()");
+            this._containerVisible = false;
+            this._container.addClass("sp-hidden");
+            this._preview.removeClass("sp-active");
+        },
+        stopPropagation: function (e) {
+            e.stopPropagation();
         }
     });
 
