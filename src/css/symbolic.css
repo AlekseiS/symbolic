@@ -31,14 +31,15 @@
     position:relative;
     width:25px;
     height: 20px;
-    border: solid 1px #222;
+    border: solid 1px #ddd;
     margin-right: 5px;
     float:left;
     z-index: 0;
 }
 .sp-preview-inner {
-    font-size:24px;
+    font-size: 24px;
     text-align: center;
+    vertical-align: top;
 }
 .sp-preview-inner, .sp-alpha-inner, .sp-thumb-inner {
     display:block;

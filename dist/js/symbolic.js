@@ -23,7 +23,7 @@
         defaults = {
             previewTemplate: [
                 "<div class='sp-replacer'>",
-                    "<div class='sp-preview'><span class='sp-preview-inner'>A</span></div>",
+                    "<div class='sp-preview'><span class='sp-preview-inner'></span></div>",
                     "<div class='sp-dd'>&#9660;</div>",
                 "</div>"
             ].join(""),
@@ -74,6 +74,7 @@
                 this.toggle();
                 e.stopPropagation();
             }, this));
+            this._preview.find(".sp-preview-inner").text(this._current);
             this._boundElement.append(this._preview);
             this.populateContainer(this._container);
             this._appendTo.append(this._container);
