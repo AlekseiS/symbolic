@@ -68,7 +68,7 @@
             this.populateContainer(this._container);
             this._appendTo.append(this._container);
             this._container.offset(this.getOffset(this._container, this._preview));
-            this._container.delegate(".sp-thumb-el", "click." + this._name, $.proxy(this.paletteCellClick, this));
+            this._container.delegate(".sp-thumb-el", "click." + this._name + " touchstart." + this._name, $.proxy(this.paletteCellClick, this));
             this._container.click(this.stopPropagation);
             this.set(this._current);
             console.log("Finished init");
@@ -84,7 +84,7 @@
         show: function () {
             console.log("show()");
             this._containerVisible = true;
-            $(this._doc).bind("click." + this._name, $.proxy(this.clickout, this));
+            $(this._doc).bind("click." + this._name + " touchstart." + this._name, $.proxy(this.clickout, this));
             this._preview.addClass("sp-active");
             this._container.removeClass("sp-hidden");
         },
@@ -93,7 +93,7 @@
             this._containerVisible = false;
             this._container.addClass("sp-hidden");
             this._preview.removeClass("sp-active");
-            $(this._doc).unbind("click." + this._name, $.proxy(this.clickout, this));
+            $(this._doc).unbind("click." + this._name + " touchstart." + this._name, $.proxy(this.clickout, this));
         },
         stopPropagation: function (e) {
             e.stopPropagation();
