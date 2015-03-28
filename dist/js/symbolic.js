@@ -35,9 +35,9 @@
                 "</div>"
             ].join(""),
             palette: [
-                ["\uD83D\uDE02", "\uD83D\uDE05", "\uD83D\uDE04", "\uD83D\uDE06", "\uD83D\uDE00"],
-                ["\uD83D\uDE39", "\uD83D\uDE38", "\uD83D\uDE3C", "\uD83D\uDE0F"]
-            ]
+                ["_"]
+            ],
+            initial: undefined
         };
 
     // The actual plugin constructor
@@ -55,7 +55,6 @@
         this._preview = $(this.settings.previewTemplate);
         this._container = $(this.settings.containerTemplate, this._doc);
         this._appendTo = $("body");
-        this._current = this.settings.palette[0][0];
         this.init();
     }
 
@@ -76,7 +75,11 @@
             this._container.offset(this._getOffset(this._container, this._preview));
             this._container.delegate(".sp-thumb-el", "click." + this._name + " touchstart." + this._name, $.proxy(this._paletteCellClick, this));
             this._container.click(this._stopPropagation);
-            this.set(this._current);
+            if (this.settings.initial) {
+                this.set(this.settings.initial);
+            } else {
+                this.set(this.settings.palette[0][0]);
+            }
             console.log("Finished init");
         },
         get: function () {
