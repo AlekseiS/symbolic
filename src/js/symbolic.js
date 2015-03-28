@@ -63,19 +63,14 @@
             // you can add more functions like the one below and
             // call them like so: this.yourOtherFunction(this.element, this.settings).
             console.log("Started init");
-            this._preview.bind("click." + this._name + " touchstart." + this._name, $.proxy(function (e) {
-                console.log("clicked");
-                this.toggle();
-                e.stopPropagation();
-            }, this));
-            this._preview.find(".sp-preview-inner").text(this._current);
+            this._preview.bind("click." + this._name + " touchstart." + this._name, $.proxy(this.previewClick, this));
             this._boundElement.append(this._preview);
             this.populateContainer(this._container);
             this._appendTo.append(this._container);
-            // TODO: recalculate offset on resize
             this._container.offset(this.getOffset(this._container, this._preview));
-            // prevent clicks from bubbling up to document. This would cause it to be hidden.
+            this._container.delegate(".sp-thumb-el", "click." + this._name, $.proxy(this.paletteCellClick, this));
             this._container.click(this.stopPropagation);
+            this.set(this._current);
             console.log("Finished init");
         },
         toggle: function () {
@@ -123,7 +118,13 @@
             return offset;
         },
         get: function () {
+            console.log("get()");
             return this._current;
+        },
+        set: function (value) {
+            console.log("set()");
+            this._current = value;
+            this._preview.find(".sp-preview-inner").text(value);
         },
         populateContainer: function (container) {
             var html = [];
@@ -147,8 +148,18 @@
                 return;
             }
             this.hide();
+        },
+        paletteCellClick: function (e) {
+            console.log("paletteCellClick");
+            this.set($(e.target).closest(".sp-thumb-el").text());
+            this.hide();
+            e.stopPropagation();
+        },
+        previewClick: function (e) {
+            console.log("previewClick()");
+            this.toggle();
+            e.stopPropagation();
         }
-
     });
 
     // A really lightweight plugin wrapper around the constructor,
