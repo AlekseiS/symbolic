@@ -66,8 +66,7 @@
 .sp-palette-container {
     float:left;
     position: relative;
-    padding: 10px;
-    padding-bottom: 300px;
+    padding: 10px 10px 300px;
     margin-bottom: -290px;
     border-right: solid 1px #ccc;
 }
