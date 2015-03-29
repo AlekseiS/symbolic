@@ -7,6 +7,12 @@
     </head>
     <body>
         <div id="element"></div>
+        <div style="font-size:18px">
+            <label for="custom-value">Set custom value:</label>
+            <input type="text" id="custom-value" maxlength="2" style="width:15px" value="A"/>
+            <a href="#" id="btn-set">Set</a>
+        </div>
+        <div id="log" style="font-size:18px"></div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
         <script src="../src/js/symbolic.js"></script>
         <script>
@@ -18,7 +24,12 @@
                     ],
                     initial: "\uD83D\uDE04"
                 }).on("selected.symbolic", function(e, value) {
-                    console.log("Selected: ", value);
+                    $("#log").append("<span>Selected:&nbsp;" + value + "</span><br>")
+                });
+                $("#btn-set").click(function() {
+                    console.log("Button set clicked");
+                    var text = $("#custom-value").val();
+                    $("#element").symbolic("set", text);
                 });
             });
         </script>
