@@ -157,6 +157,8 @@
             this.set($(e.target).closest(".sp-thumb-el").text());
             this.hide();
             e.stopPropagation();
+            var event = $.Event("selected." + this._name);
+            this._boundElement.trigger(event, this.get());
         },
         _previewClick: function (e) {
             console.log("previewClick()");
