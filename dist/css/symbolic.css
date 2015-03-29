@@ -4,95 +4,89 @@
  *  https://github.com/AlekseiS/symbolic
  *  Made by Aleksei
  */
-.sp-replacer {
-    margin:0;
-    overflow:hidden;
-    cursor:pointer;
+.sy-replacer {
+    margin: 0;
+    overflow: hidden;
+    cursor: pointer;
     padding: 4px;
-    display:inline-block;
-    *zoom: 1;
-    *display: inline;
+    display: inline-block;
     border: solid 1px #91765d;
     background: #fcfcfc;
     color: #333;
-    vertical-align: middle;
 }
-.sp-replacer:hover, .sp-replacer.sp-active {
+
+.sy-replacer:hover, .sy-replacer.sy-active {
     border-color: #F0C49B;
     color: #111;
 }
-.sp-replacer.sp-disabled {
-    cursor:default;
-    border-color: silver;
-    color: silver;
-}
-.sp-dd {
+
+.sy-dd {
     padding: 2px 0;
     height: 16px;
     line-height: 16px;
-    float:left;
-    font-size:10px;
+    float: left;
+    font-size: 10px;
 }
-.sp-preview {
-    position:relative;
-    width:25px;
+
+.sy-preview {
+    position: relative;
+    width: 25px;
     height: 20px;
     border: solid 1px #ddd;
     margin-right: 5px;
-    float:left;
+    float: left;
     z-index: 0;
 }
-.sp-preview-inner {
+
+.sy-preview-inner {
     font-size: 24px;
     text-align: center;
     vertical-align: top;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
-.sp-preview-inner, .sp-alpha-inner, .sp-thumb-inner {
-    display:block;
-    position:absolute;
-    top:0;left:0;bottom:0;right:0;
-}
-.sp-hidden {
+
+.sy-hidden {
     display: none !important;
 }
-.sp-container {
-    position:absolute;
-    top:0;
-    left:0;
-    display:inline-block;
-    *display: inline;
-    *zoom: 1;
-    z-index: 9999994;
+
+.sy-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    z-index: 9001;
     overflow: hidden;
     border-radius: 0;
     background-color: #ECECEC;
     border: solid 1px #f0c49B;
     padding: 0;
 }
-.sp-palette-container {
-    float:left;
+
+.sy-palette-container {
+    float: left;
     position: relative;
     padding: 10px 10px 300px;
     margin-bottom: -290px;
-    border-right: solid 1px #ccc;
 }
-/* Clearfix hack */
-.sp-cf:before, .sp-cf:after { content: ""; display: table; }
-.sp-cf:after { clear: both; }
-.sp-cf { *zoom: 1; }
 
-.sp-palette .sp-thumb-el {
-    display: block;
-    position:relative;
-    float:left;
+.sy-palette .sy-thumb-el {
+    display: inline-block;
+    position: relative;
     width: 26px;
     height: 26px;
     margin: 3px;
     cursor: pointer;
-    border:solid 1px #bbb;
-    font-size: 20px;
+    border: solid 1px #bbb;
+    font-size: 22px;
     text-align: center;
+    vertical-align: middle;
 }
-.sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
-    border-color: orange;
+
+.sy-palette .sy-thumb-el:hover, .sy-palette .sy-thumb-el.sy-thumb-active {
+    border-color: #FFA500;
 }
