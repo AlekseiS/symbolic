@@ -6,7 +6,9 @@
     "jquery-plugin",
     "jquery",
     "symbolic",
-    "plugins"
+    "plugins",
+    "symbol",
+    "picker"
   ],
   "repository": {
     "type": "git",
