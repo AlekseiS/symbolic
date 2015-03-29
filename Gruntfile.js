@@ -80,6 +80,9 @@ module.exports = function(grunt) {
         },
 
         csslint: {
+            options: {
+                csslintrc: '.csslintrc'
+            },
             my_target: {
                 src: ['src/css/**/*.css']
             }
