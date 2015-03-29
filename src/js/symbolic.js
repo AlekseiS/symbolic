@@ -16,15 +16,15 @@
     var pluginName = "symbolic",
         defaults = {
             previewTemplate: [
-                "<div class='sp-replacer'>",
-                    "<div class='sp-preview'><span class='sp-preview-inner'></span></div>",
-                    "<div class='sp-dd'>&#9660;</div>",
+                "<div class='sy-replacer'>",
+                    "<div class='sy-preview'><span class='sy-preview-inner'></span></div>",
+                    "<div class='sy-dd'>&#9660;</div>",
                 "</div>"
             ].join(""),
             containerTemplate: [
-                "<div class='sp-container sp-hidden'>",
-                    "<div class='sp-palette-container'>",
-                        "<div class='sp-palette sp-thumb sp-cf'></div>",
+                "<div class='sy-container sy-hidden'>",
+                    "<div class='sy-palette-container'>",
+                        "<div class='sy-palette sy-thumb sy-cf'></div>",
                     "</div>",
                 "</div>"
             ].join(""),
@@ -61,20 +61,20 @@
             // and this.settings
             // you can add more functions like the one below and
             // call them like so: this.yourOtherFunction(this.element, this.settings).
-            console.log("Started init");
+            console.log("Started init()");
             this._preview.bind("click." + this._name + " touchstart." + this._name, $.proxy(this._previewClick, this));
             this._boundElement.append(this._preview);
             this._populateContainer(this._container);
             this._appendTo.append(this._container);
             this._container.offset(this._getOffset(this._container, this._preview));
-            this._container.delegate(".sp-thumb-el", "click." + this._name + " touchstart." + this._name, $.proxy(this._paletteCellClick, this));
+            this._container.delegate(".sy-thumb-el", "click." + this._name + " touchstart." + this._name, $.proxy(this._paletteCellClick, this));
             this._container.click(this._stopPropagation);
             if (this.settings.initial) {
                 this.set(this.settings.initial);
             } else {
                 this.set(this.settings.palette[0][0]);
             }
-            console.log("Finished init");
+            console.log("Finished init()");
         },
         get: function () {
             console.log("get()");
@@ -83,7 +83,7 @@
         set: function (value) {
             console.log("set()");
             this._current = value;
-            this._preview.find(".sp-preview-inner").text(value);
+            this._preview.find(".sy-preview-inner").text(value);
         },
         toggle: function () {
             console.log("toggle()");
@@ -97,14 +97,14 @@
             console.log("show()");
             this._containerVisible = true;
             $(this._doc).bind("click." + this._name + " touchstart." + this._name, $.proxy(this._clickout, this));
-            this._preview.addClass("sp-active");
-            this._container.removeClass("sp-hidden");
+            this._preview.addClass("sy-active");
+            this._container.removeClass("sy-hidden");
         },
         hide: function () {
             console.log("hide()");
             this._containerVisible = false;
-            this._container.addClass("sp-hidden");
-            this._preview.removeClass("sp-active");
+            this._container.addClass("sy-hidden");
+            this._preview.removeClass("sy-active");
             $(this._doc).unbind("click." + this._name + " touchstart." + this._name, $.proxy(this._clickout, this));
         },
         _stopPropagation: function (e) {
@@ -135,14 +135,14 @@
             for (var i = 0; i < paletteArray.length; i++) {
                 html.push(this._populateRow(paletteArray[i]));
             }
-            container.find(".sp-palette").append(html.join(""));
+            container.find(".sy-palette").append(html.join(""));
         },
         _populateRow: function (row) {
             var html = [];
             for (var i = 0; i < row.length; i++) {
-                html.push("<span class='sp-thumb-el'>" + row[i] + "</span>");
+                html.push("<span class='sy-thumb-el'>" + row[i] + "</span>");
             }
-            return "<div class='sp-cf'>" + html.join("") + "</div>";
+            return "<div class='sy-cf'>" + html.join("") + "</div>";
         },
         _clickout: function (e) {
             console.log("clickout()");
@@ -153,8 +153,8 @@
             this.hide();
         },
         _paletteCellClick: function (e) {
-            console.log("paletteCellClick");
-            this.set($(e.target).closest(".sp-thumb-el").text());
+            console.log("paletteCellClick()");
+            this.set($(e.target).closest(".sy-thumb-el").text());
             this.hide();
             e.stopPropagation();
             var event = $.Event("selected." + this._name);
