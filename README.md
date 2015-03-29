@@ -4,7 +4,7 @@
 
 Inspired by [Spectrum](https://github.com/bgrins/spectrum) colorpicker, Symbolic is a jQuery plugin that provides a way to select a character from a set of characters presented on a palette.
 
-[Symbolic](https://github.com/AlekseiS/symbolic) gives a nice way to create a palette of smileys, emojis, special symbols or just plain characters and ask the user to pick one of them. See [demo/index.html](https://github/AlekseiS/symbolic/demo/index.html) for a smileys example.
+[Symbolic](https://github.com/AlekseiS/symbolic) gives a nice way to create a palette of smileys, emojis, special symbols or just plain characters and ask the user to pick one of them. See [demo/index.html](https://github.com/AlekseiS/symbolic/blob/master/demo/index.html) for a smileys example.
 
 The plugin supports "show", "hide", "toggle", "get", "set" methods. Initial markup is customizable via plugin settings. Appearance is customizeable via CSS.
 
@@ -45,7 +45,7 @@ The plugin supports "show", "hide", "toggle", "get", "set" methods. Initial mark
 
 
 ## Demo
-See [demo/index.html](https://github/AlekseiS/symbolic/demo/index.html) for a complete example demonstrating initial setup, handling "selected.symbolic" event and using "set" method.
+See [demo/index.html](https://github.com/AlekseiS/symbolic/blob/master/demo/index.html) for a complete example demonstrating initial setup, handling "selected.symbolic" event and using "set" method.
 
 
 ## License
