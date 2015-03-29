@@ -46,3 +46,7 @@ The plugin supports "show", "hide", "toggle", "get", "set" methods. Initial mark
 
 ## Demo
 See [demo/index.html](https://github/AlekseiS/symbolic/demo/index.html) for a complete example demonstrating initial setup, handling "selected.symbolic" event and using "set" method.
+
+
+## License
+MIT license. See [LICENSE](https://github/AlekseiS/symbolic/LICENSE) file for more information.

@@ -12,6 +12,7 @@ module.exports = function(grunt) {
                 " *  <%= pkg.description %>\n" +
                 " *  <%= pkg.homepage %>\n" +
                 " *  Made by <%= pkg.author.name %>\n" +
+                " *  Under <%= pkg.license %> License\n" +
                 " */\n"
         },
 

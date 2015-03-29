@@ -24,6 +24,7 @@
     "url": "https://github.com/AlekseiS"
   },
   "homepage": "https://github.com/AlekseiS/symbolic",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-cli": "~0.1.13",
