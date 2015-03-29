@@ -1,8 +1,9 @@
 /*
- *  symbolic - v1.0.0
+ *  Symbolic - v1.0.0
  *  A symbol picker jQuery plugin.
  *  https://github.com/AlekseiS/symbolic
  *  Made by Aleksei
+ *  Under MIT License
  */
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
