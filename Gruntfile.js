@@ -52,6 +52,11 @@ module.exports = function(grunt) {
 
         // Minify definitions
         uglify: {
+            options: {
+                compress: {
+                    drop_console: true
+                }
+            },
             my_target: {
                 src: ["src/js/symbolic.js"],
                 dest: "dist/js/symbolic.min.js"
