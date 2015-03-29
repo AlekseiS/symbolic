@@ -4,23 +4,14 @@
     cursor: pointer;
     padding: 4px;
     display: inline-block;
-    *zoom: 1;
-    *display: inline;
     border: solid 1px #91765d;
     background: #fcfcfc;
     color: #333;
-    vertical-align: middle;
 }
 
 .sy-replacer:hover, .sy-replacer.sy-active {
     border-color: #F0C49B;
     color: #111;
-}
-
-.sy-replacer.sy-disabled {
-    cursor: default;
-    border-color: silver;
-    color: silver;
 }
 
 .sy-dd {
@@ -45,7 +36,7 @@
     font-size: 24px;
     text-align: center;
     vertical-align: top;
-    display: block;
+    display: inline-block;
     position: absolute;
     top: 0;
     left: 0;
@@ -62,9 +53,7 @@
     top: 0;
     left: 0;
     display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    z-index: 9999994;
+    z-index: 9001;
     overflow: hidden;
     border-radius: 0;
     background-color: #ECECEC;
@@ -77,36 +66,21 @@
     position: relative;
     padding: 10px 10px 300px;
     margin-bottom: -290px;
-    border-right: solid 1px #ccc;
-}
-
-/* Clearfix hack */
-.sy-cf:before, .sy-cf:after {
-    content: "";
-    display: table;
-}
-
-.sy-cf:after {
-    clear: both;
-}
-
-.sy-cf {
-    *zoom: 1;
 }
 
 .sy-palette .sy-thumb-el {
-    display: block;
+    display: inline-block;
     position: relative;
-    float: left;
     width: 26px;
     height: 26px;
     margin: 3px;
     cursor: pointer;
     border: solid 1px #bbb;
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
+    vertical-align: middle;
 }
 
 .sy-palette .sy-thumb-el:hover, .sy-palette .sy-thumb-el.sy-thumb-active {
-    border-color: orange;
+    border-color: #FFA500;
 }

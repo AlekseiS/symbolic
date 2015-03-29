@@ -24,7 +24,7 @@
             containerTemplate: [
                 "<div class='sy-container sy-hidden'>",
                     "<div class='sy-palette-container'>",
-                        "<div class='sy-palette sy-thumb sy-cf'></div>",
+                        "<div class='sy-palette sy-thumb'></div>",
                     "</div>",
                 "</div>"
             ].join(""),
@@ -142,7 +142,7 @@
             for (var i = 0; i < row.length; i++) {
                 html.push("<span class='sy-thumb-el'>" + row[i] + "</span>");
             }
-            return "<div class='sy-cf'>" + html.join("") + "</div>";
+            return "<div>" + html.join("") + "</div>";
         },
         _clickout: function (e) {
             console.log("clickout()");
