@@ -62,12 +62,6 @@
     // Avoid Plugin.prototype conflicts
     $.extend(Plugin.prototype, {
         init: function () {
-            // Place initialization logic here
-            // You already have access to the DOM element and
-            // the options via the instance, e.g. this.element
-            // and this.settings
-            // you can add more functions like the one below and
-            // call them like so: this.yourOtherFunction(this.element, this.settings).
             console.log("Started init()");
             this._preview.bind("click." + this._name + " touchstart." + this._name, $.proxy(this._previewClick, this));
             this._boundElement.append(this._preview);
