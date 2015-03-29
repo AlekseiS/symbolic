@@ -1,5 +1,5 @@
 {
-  "name": "symbolic",
+  "name": "Symbolic",
   "version": "1.0.0",
   "description": "A symbol picker jQuery plugin.",
   "keywords": [
@@ -8,7 +8,9 @@
     "symbolic",
     "plugins",
     "symbol",
-    "picker"
+    "picker",
+    "smile",
+    "emoji"
   ],
   "repository": {
     "type": "git",
