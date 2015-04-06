@@ -1,5 +1,5 @@
 /*
- *  Symbolic - v1.0.0
+ *  Symbolic - v1.0.1
  *  A symbol picker jQuery plugin.
  *  https://github.com/AlekseiS/symbolic
  *  Made by Aleksei
