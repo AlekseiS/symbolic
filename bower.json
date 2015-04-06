@@ -1,0 +1,36 @@
+{
+  "name": "symbolic",
+  "version": "1.0.0",
+  "homepage": "https://github.com/AlekseiS/symbolic",
+  "authors": [
+    "Aleksei <me.aleksei@gmail.com>"
+  ],
+  "description": "A symbol picker jQuery plugin.",
+  "main": ["dist/js/symbolic.js","dist/css/symbolic.css"],
+  "dependencies": {
+    "jquery": ">=1.7.2"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "jquery",
+    "symbolic",
+    "plugins",
+    "symbol",
+    "picker",
+    "smile",
+    "emoji"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "package.json",
+    "Gruntfile.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
