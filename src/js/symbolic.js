@@ -55,7 +55,6 @@
     // Avoid Plugin.prototype conflicts
     $.extend(Plugin.prototype, {
         init: function () {
-            console.log("Started init()");
             this._preview.bind("click." + this._name + " touchstart." + this._name, $.proxy(this._previewClick, this));
             this._boundElement.append(this._preview);
             this._populateContainer(this._container);
@@ -68,19 +67,15 @@
             } else {
                 this.set(this.settings.palette[0][0]);
             }
-            console.log("Finished init()");
         },
         get: function () {
-            console.log("get()");
             return this._current;
         },
         set: function (value) {
-            console.log("set()");
             this._current = value;
             this._preview.find(".sy-preview-inner").text(value);
         },
         toggle: function () {
-            console.log("toggle()");
             if (this._containerVisible) {
                 this.hide();
             } else {
@@ -88,14 +83,12 @@
             }
         },
         show: function () {
-            console.log("show()");
             this._containerVisible = true;
             $(this._doc).bind("click." + this._name + " touchstart." + this._name, $.proxy(this._clickout, this));
             this._preview.addClass("sy-active");
             this._container.removeClass("sy-hidden");
         },
         hide: function () {
-            console.log("hide()");
             this._containerVisible = false;
             this._container.addClass("sy-hidden");
             this._preview.removeClass("sy-active");
@@ -139,7 +132,6 @@
             return "<div>" + html.join("") + "</div>";
         },
         _clickout: function (e) {
-            console.log("clickout()");
             // Return on right click.
             if (e.button === 2) {
                 return;
@@ -147,7 +139,6 @@
             this.hide();
         },
         _paletteCellClick: function (e) {
-            console.log("paletteCellClick()");
             this.set($(e.target).closest(".sy-thumb-el").text());
             this.hide();
             e.stopPropagation();
@@ -155,7 +146,6 @@
             this._boundElement.trigger(event, this.get());
         },
         _previewClick: function (e) {
-            console.log("previewClick()");
             this.toggle();
             e.stopPropagation();
         }
